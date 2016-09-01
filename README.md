@@ -14,7 +14,7 @@ This DIP is compatible with the following touch screen LCD panels (resistive tou
 * Pin headers for the UART and power switch
 * 5.5x2.5mm barrel jack to supply power (5V 2.5A)
 
-![3D Rendering of the DIP](https://github.com/cmnybo/chip_lcd_dip/img/CHIP_LCD_DIP_Top_Iso.png "3D Rendering of the DIP")
+![3D Rendering of the DIP](https://github.com/cmnybo/chip_lcd_dip/raw/master/img/CHIP_LCD_DIP_Top_Iso.png "3D Rendering of the DIP")
 
 ## License
 **This project is open source hardware.**
