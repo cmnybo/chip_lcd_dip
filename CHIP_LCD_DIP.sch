@@ -93,8 +93,8 @@ $Descr A 11000 8500
 encoding utf-8
 Sheet 1 1
 Title "C.H.I.P. LCD Adapter & SPI Expander"
-Date "2016-09-02"
-Rev "3"
+Date "2016-10-14"
+Rev "3.1"
 Comp "Cody Nybo"
 Comment1 ""
 Comment2 ""
@@ -102,10 +102,10 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L CHIP_DIP CON1
+L CHIP_DIP P1
 U 1 1 570CDC11
 P 2350 3500
-F 0 "CON1" H 2350 5937 60  0000 C CNN
+F 0 "P1" H 2350 5937 60  0000 C CNN
 F 1 "C.H.I.P." H 2350 5831 60  0000 C CNN
 F 2 "misc:CHIP_DIP" V 1600 4200 60  0001 C CNN
 F 3 "" V 1600 4200 60  0000 C CNN
@@ -164,10 +164,10 @@ L R_Small R1
 U 1 1 570CE7A7
 P 9200 4600
 F 0 "R1" H 9259 4646 50  0000 L CNN
-F 1 "5.6Ω" H 9259 4554 50  0000 L CNN
+F 1 "5.1Ω" H 9259 4554 50  0000 L CNN
 F 2 "capacitor_smd:C_0603" H 9200 4600 60  0001 C CNN
 F 3 "" H 9200 4600 60  0000 C CNN
-F 4 "311-5.6GRCT-ND" H 9200 4600 60  0001 C CNN "DigiKey"
+F 4 "311-5.1GRCT-ND" H 9200 4600 60  0001 C CNN "DigiKey"
 F 5 "Yageo" H 9200 4600 60  0001 C CNN "Manufacturer"
 F 6 "5%" H 9200 4600 60  0001 C CNN "Tolerance"
 F 7 "200ppm" H 9200 4600 60  0001 C CNN "Temp Co"
@@ -201,9 +201,9 @@ P 10000 3200
 F 0 "P5" H 10077 3238 50  0000 L CNN
 F 1 "LCD" H 10077 3146 50  0000 L CNN
 F 2 "connectors:TE_40_PIN_LCD_Connector" H 10000 3200 60  0001 C CNN
-F 3 "http://portal.fciconnect.com/Comergent//fci/drawing/62684.pdf" H 10000 3200 60  0001 C CNN
-F 4 "609-1195-1-ND" H 10000 3200 60  0001 C CNN "DigiKey"
-F 5 "Amphenol FCI" H 10000 3200 60  0001 C CNN "Manufacturer"
+F 3 "http://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1734592&DocType=Customer+Drawing&DocLang=English" H 10000 3200 60  0001 C CNN
+F 4 "A100226CT-ND" H 10000 3200 60  0001 C CNN "DigiKey"
+F 5 "TE Connectivity" H 10000 3200 60  0001 C CNN "Manufacturer"
 F 6 "0.50mm" H 10000 3200 60  0001 C CNN "Pitch"
 F 7 "Bottom" H 10000 3200 60  0001 C CNN "Contacts"
 	1    10000 3200
@@ -403,10 +403,10 @@ CS6
 Text Label 5800 2050 0    50   ~ 0
 CS7
 $Comp
-L CONN_01X03 P2
+L CONN_01X03 P4
 U 1 1 570E6A69
 P 5250 5100
-F 0 "P2" H 5328 5138 50  0000 L CNN
+F 0 "P4" H 5328 5138 50  0000 L CNN
 F 1 "UART" H 5328 5046 50  0000 L CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x03" H 5250 5100 60  0001 C CNN
 F 3 "" H 5250 5100 60  0000 C CNN
@@ -602,10 +602,10 @@ Entry Wire Line
 Entry Wire Line
 	5950 2050 6050 2150
 $Comp
-L CONN_02X17 P1
+L CONN_02X17 P6
 U 1 1 570F253C
 P 5200 3750
-F 0 "P1" H 5200 4766 50  0000 C CNN
+F 0 "P6" H 5200 4766 50  0000 C CNN
 F 1 "GPIO" H 5200 4674 50  0000 C CNN
 F 2 "w_conn_strip:vasch_strip_17x2" H 5200 2650 60  0001 C CNN
 F 3 "" H 5200 2650 60  0000 C CNN
@@ -644,9 +644,9 @@ Text Label 5450 3450 0    50   ~ 0
 MISO
 Text Label 5450 3550 0    50   ~ 0
 SCK
-Text Label 4950 3750 2    50   ~ 0
+Text Label 4950 3550 2    50   ~ 0
 GND
-Text Label 4950 3650 2    50   ~ 0
+Text Label 4950 3750 2    50   ~ 0
 XIO5
 Text Label 5450 3750 0    50   ~ 0
 XIO6
@@ -1126,13 +1126,13 @@ L INDUCTOR_SMALL L1
 U 1 1 576F50A3
 P 8450 3650
 F 0 "L1" H 8450 3865 50  0000 C CNN
-F 1 "6.8µH" H 8450 3774 50  0000 C CNN
+F 1 "15µH" H 8450 3774 50  0000 C CNN
 F 2 "inductor:TDK_VLS-E-CA" H 8350 3650 60  0001 C CNN
-F 3 "https://product.tdk.com/info/en/catalog/datasheets/inductor_automotive_power_vls252008e-ca_en.pdf" H 8450 3750 60  0001 C CNN
-F 4 "445-174144-1-ND" H 8550 3850 50  0001 C CNN "DigiKey"
+F 3 "https://product.tdk.com/info/en/catalog/datasheets/inductor_automotive_power_vls2012e-ca_en.pdf" H 8450 3750 60  0001 C CNN
+F 4 "445-6598-1-ND" H 8550 3850 50  0001 C CNN "DigiKey"
 F 5 "TDK" H 8650 3950 50  0001 C CNN "Manufacturer"
 F 6 "20%" H 8750 4050 50  0001 C CNN "Tolerance"
-F 7 "490mA" H 8850 4150 50  0001 C CNN "Current"
+F 7 "400mA" H 8850 4150 50  0001 C CNN "Current"
 	1    8450 3650
 	1    0    0    -1  
 $EndComp
@@ -1308,7 +1308,7 @@ LCD_ON
 Wire Wire Line
 	9800 3450 9650 3450
 Connection ~ 9650 3450
-Text Label 4950 3550 2    50   ~ 0
+Text Label 4950 3650 2    50   ~ 0
 XIO3
 $Comp
 L +5V #PWR015
@@ -1322,10 +1322,10 @@ F 3 "" H 8100 3600 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L BARREL_JACK CON2
+L BARREL_JACK P2
 U 1 1 57C06507
 P 950 5050
-F 0 "CON2" H 931 5397 60  0000 C CNN
+F 0 "P2" H 931 5397 60  0000 C CNN
 F 1 "Power" H 931 5291 60  0000 C CNN
 F 2 "Connect:BARREL_JACK" H 950 5050 60  0001 C CNN
 F 3 "http://www.cui.com/product/resource/digikeypdf/pj-002b.pdf" H 950 5050 60  0001 C CNN
@@ -1346,14 +1346,14 @@ U 1 1 57C4D44B
 P 9050 1700
 F 0 "C4" H 9142 1746 50  0000 L CNN
 F 1 "10µF" H 9142 1654 50  0000 L CNN
-F 2 "capacitor_smd:C_0805" H 9050 1700 60  0001 C CNN
+F 2 "capacitor_smd:C_0603" H 9050 1700 60  0001 C CNN
 F 3 "" H 9050 1700 60  0000 C CNN
-F 4 "1276-6457-1-ND" H 9050 1700 60  0001 C CNN "DigiKey"
+F 4 "1276-1119-1-ND" H 9050 1700 60  0001 C CNN "DigiKey"
 F 5 "Samsung" H 9050 1700 60  0001 C CNN "Manufacturer"
 F 6 "6.3V" H 9050 1700 60  0001 C CNN "Voltage"
-F 7 "10%" H 9050 1700 60  0001 C CNN "Tolerance"
+F 7 "20%" H 9050 1700 60  0001 C CNN "Tolerance"
 F 8 "X5R" H 9050 1700 60  0001 C CNN "Temp Co"
-F 9 "0805" H 9050 1700 60  0001 C CNN "Package"
+F 9 "603" H 9050 1700 60  0001 C CNN "Package"
 	1    9050 1700
 	-1   0    0    -1  
 $EndComp
@@ -1399,7 +1399,7 @@ Wire Wire Line
 	7750 4350 7750 4750
 Connection ~ 7750 4750
 Text Notes 8700 5050 0    50   ~ 0
-R1:\n5.6Ω for 5" & 7" panel\n15Ω for 4.3" panel
+R1:\n5.1Ω for 5" & 7" panel\n15Ω for 4.3" panel
 Text Notes 700  5300 0    60   ~ 0
 5V In
 $Comp
@@ -1414,10 +1414,10 @@ F 3 "" H 10200 7050 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CONN_02X03 P4
+L CONN_02X03 P7
 U 1 1 57CA09BF
 P 2250 7150
-F 0 "P4" H 2250 7465 50  0000 C CNN
+F 0 "P7" H 2250 7465 50  0000 C CNN
 F 1 "TS" H 2250 7374 50  0000 C CNN
 F 2 "connectors:02x03_Header_0.05" H 2250 7381 60  0001 C CNN
 F 3 "" H 2250 5950 60  0000 C CNN

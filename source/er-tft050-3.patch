@@ -1,0 +1,43 @@
+--- CHIP-linux-4.4.11-ntc-9/drivers/gpu/drm/panel/panel-simple.c	2016-05-27 17:09:36.000000000 -0700
++++ CHIP-linux-4.4.11-cn25/drivers/gpu/drm/panel/panel-simple.c	2016-10-06 13:48:21.724150000 -0700
+@@ -1026,6 +1026,30 @@
+ 	.bus_format = MEDIA_BUS_FMT_RGB666_1X18,
+ };
+ 
++static const struct drm_display_mode ER_TFT050_3ts_mode = {
++	.clock = 33000,
++	.hdisplay = 800,
++	.hsync_start = 912,
++	.hsync_end = 960,
++	.htotal = 1048,
++	.vdisplay = 480,
++	.vsync_start = 493,
++	.vsync_end = 496,
++	.vtotal = 528,
++	.vrefresh = 60,
++};
++
++static const struct panel_desc ER_TFT050_3ts = {
++	.modes = &ER_TFT050_3ts_mode,
++	.num_modes = 1,
++	.size = {
++		.width = 108,
++		.height = 65,
++	},
++	.bus_format = MEDIA_BUS_FMT_RGB666_1X18,
++};
++
++
+ static const struct drm_display_mode ortustech_com43h4m85ulc_mode  = {
+ 	.clock = 25000,
+ 	.hdisplay = 480,
+@@ -1205,6 +1229,9 @@
+ 		.compatible = "olimex,lcd-olinuxino-43-ts",
+ 		.data = &olimex_lcd_olinuxino_43ts,
+ 	}, {
++		.compatible = "eastrising,lcd-er-tft050-3-ts",
++		.data = &ER_TFT050_3ts,
++	}, {
+ 		.compatible = "ortustech,com43h4m85ulc",
+ 		.data = &ortustech_com43h4m85ulc,
+ 	}, {

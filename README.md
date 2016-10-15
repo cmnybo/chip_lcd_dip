@@ -14,6 +14,13 @@ This DIP is compatible with the following touch screen LCD panels (resistive tou
 * Pin headers for the UART and power switch
 * 5.5x2.5mm barrel jack to supply power (5V 2.5A)
 
+The original design files for this board were created in [KiCAD](http://kicad-pcb.org/). <br/>
+There are PDF copies of the schematic, PCB layout, and bill of materials in the "pdf" directory.<br/>
+The "gerber" directory contains all of the files needed to have some boards made.<br/>
+The device tree overlay, kernel patch, and EEPROM image are in the "source" directory.
+
+
+
 ![3D Rendering of the DIP](https://github.com/cmnybo/chip_lcd_dip/raw/master/img/CHIP_LCD_DIP_Top_Iso.png "3D Rendering of the DIP")
 
 ## License

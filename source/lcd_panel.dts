@@ -1,0 +1,130 @@
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/input/input.h>
+#include <dt-bindings/interrupt-controller/irq.h>
+#include <dt-bindings/pinctrl/sun4i-a10.h>
+
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "nextthing,chip", "allwinner,sun5i-r8";
+
+	/* Setup Pins */
+	fragment@0 {
+		target = <&pio>;
+
+		__overlay__ {
+			chip_bl_en: chip_backlight_enable@0 {
+				allwinner,pins = "PD18";										/* Display Enable Pin */
+				allwinner,function = "gpio_out";								/* GPIO Output */
+				allwinner,drive = <SUN4I_PINCTRL_10_MA>;						/* 10mA Drive */
+				allwinner,pull = <SUN4I_PINCTRL_NO_PULL>;                   	/* No pullups */
+			};
+		};
+	};
+
+	/* Enable the PWM */
+	fragment@1 {
+		target = <&pwm>;
+
+		__overlay__ {
+			pinctrl-names = "default";
+			pinctrl-0 = <&pwm0_pins>;
+			status = "okay";
+		};
+	};
+
+	/* Configure LCD Backlight */
+	fragment@2 {
+		target-path = "/";
+
+		__overlay__ {
+			backlight: backlight {
+				compatible = "pwm-backlight";
+				pwms = <&pwm 0 10000 0>;										/* PWM Period 10µs = 100KHz*/
+
+				brightness-levels = <0 10 20 30 40 50 60 70 80 90 100>;
+				default-brightness-level = <4>;
+
+				pinctrl-names = "default";
+				pinctrl-0 = <&chip_bl_en>;
+				enable-gpios = <&pio 3 18 GPIO_ACTIVE_HIGH>;					/* Backlight & LCD Enable Pin*/
+			};
+		};
+	};
+
+	/* Enable the I2C1 bus */
+	fragment@3 {
+		target = <&i2c1>;
+
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			pinctrl-names = "default";
+			pinctrl-0 = <&i2c1_pins_a>;
+			status = "okay";
+		};
+	};
+
+	/* Enable the touchscreen */
+	fragment@4 {
+		target = <&rtp>;
+
+		__overlay__ {
+			touchscreen-inverted-x;
+			touchscreen-inverted-y;
+			allwinner,ts-attached;
+		};
+	};
+
+	/* Enable the panel */
+	fragment@5 {
+		target-path = "/";
+
+		__overlay__ {
+			panel {
+				#address-cells = <1>;
+				#size-cells = <0>;
+				compatible = "eastrising,lcd-er-tft050-3-ts";
+				backlight = <&backlight>;
+
+				port@0 {
+					reg = <0>;
+					#address-cells = <1>;
+					#size-cells = <0>;
+
+					panel_input: endpoint@0 {
+						reg = <0>;
+						remote-endpoint = <&tcon0_out_panel>;
+					};
+				};
+			};
+		};
+	};
+
+	/* Link the TCON with the panel */
+	fragment@6 {
+		target = <&tcon0_out>;
+
+		__overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+
+			tcon0_out_panel: endpoint@0 {
+				reg = <0>;
+				remote-endpoint = <&panel_input>;
+			};
+		};
+	};
+
+	/* Register the LCD pins with pinctrl */
+	fragment@7 {
+		target = <&tcon0>;
+
+		__overlay__ {
+			pinctrl-names = "default";
+			pinctrl-0 = <&lcd_rgb565_pins>;
+		};
+	};
+};
+
